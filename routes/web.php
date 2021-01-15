@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 Route::get('games', 'GamesController@index')->name('all_games');
 
-Route::get('games/{id}', 'GamesController@show');
+Route::get('games/{id}', 'GamesController@show')->name('show_game');
 
-Route::get('games/create', 'GamesController@create');
+Route::get('games/create', 'GamesController@create')->name('create');
 
-Route::post('games', 'GamesController@store');
+Route::post('games', 'GamesController@store')->name('add_games');

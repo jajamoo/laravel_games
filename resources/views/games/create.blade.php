@@ -2,7 +2,7 @@
 
     <h2>Add a game</h2>
 <!-- Wrote this file -->
-    <form method="post" action="/games" enctype="multipart/form-data">
+    <form method="post" action="{{route('create')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group row">
             <label for="titleid" class="col-sm-3 col-form-label">Game Title</label>
