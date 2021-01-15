@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Game;
 
+//created this controller
 class GamesController extends Controller
 {
     public function index()

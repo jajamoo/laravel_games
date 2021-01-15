@@ -1,4 +1,5 @@
 @section('content')
+    <!-- Wrote this file -->
 
     <div class="card" style="width: 270px;margin: 5px">
         <img class="card-img-top" src="{{ asset('/storage/' . $game->image)  }}" alt="Card image cap">

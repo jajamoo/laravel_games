@@ -1,7 +1,7 @@
 @section('content')
 
     <h2>Add a game</h2>
-
+<!-- Wrote this file -->
     <form method="post" action="/games" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group row">
