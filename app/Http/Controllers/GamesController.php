@@ -26,17 +26,32 @@ class GamesController extends Controller
 //        return view('games.create', ['game' => $id]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|string',
+            'publisher' => 'required|string',
+            'developer' => 'nullable|string',
+            'releasedate' => 'required|date',
+            'image' => 'required|string',
+        ]);
+
         $game = new Game;
 
-        $game->title = request('title');
-        $game->publisher = request('publisher');
-        $game->releasedate = request('releasedate');
-        $game->releasedate = request('developer');
-        $game->image = request()->file('image')->store('public/images');
+        $game->title = $request->input('title');
+        $game->publisher = $request->input('publisher');
+        $game->developer = $request->input('developer');
+        $game->releasedate = $request->input('releasedate');
+        $game->image = $request->file('image')->store('public/images');
+
         $game->save();
     }
 
+    public function delete($id)
+    {
+        $game = Game::find($id);
+        $game->delete();
 
+        return redirect()->route('all_games');
+    }
 }

@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('games', 'GamesController@index');
+Route::get('games', 'GamesController@index')->name('all_games');
 
 Route::get('games/{id}', 'GamesController@show');
 
