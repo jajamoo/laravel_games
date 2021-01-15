@@ -19,7 +19,7 @@ class CreateGamesTable extends Migration
             $table->string('title');
             $table->string('publisher');
             $table->string('developer');
-            $table->date('release_date');
+            $table->date('release_date')->nullable();
             $table->string('image');
             $table->timestamps();
         });

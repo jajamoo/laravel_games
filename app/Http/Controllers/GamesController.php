@@ -21,30 +21,34 @@ class GamesController extends Controller
         return view('games.show', ['game' => $game]);
     }
 
-    public function create(Request $request)
+    public function start(Request $request)
     {
-//        return view('games.create', ['game' => $id]);
+        return view('games.create');
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string',
-            'publisher' => 'required|string',
-            'developer' => 'nullable|string',
-            'releasedate' => 'required|date',
-            'image' => 'required|string',
-        ]);
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'title' => 'required|string',
+                'publisher' => 'required|string',
+                'developer' => 'nullable|string',
+                'releasedate' => 'required|date',
+                'image' => 'required|string',
+            ]);
 
-        $game = new Game;
+            $game = new Game;
 
-        $game->title = $request->input('title');
-        $game->publisher = $request->input('publisher');
-        $game->developer = $request->input('developer');
-        $game->releasedate = $request->input('releasedate');
-        $game->image = $request->file('image')->store('public/images');
+            $game->title = $request->input('title');
+            $game->publisher = $request->input('publisher');
+            $game->developer = $request->input('developer');
+            $game->releasedate = $request->input('releasedate');
+            $game->image = $request->file('image')->store('public/images');
 
-        $game->save();
+            $game->save();
+        }
+
+        return view('games.create');
     }
 
     public function delete($id)
