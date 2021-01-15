@@ -14,9 +14,10 @@ class AlterGamesTableAddPublishersFk extends Migration
     public function up()
     {
         Schema::table('games', function (Blueprint $table) {
-            $table->foreignId('publisher_id')
-                ->constrained('publishers')
-                ->onUpdate('cascade');
+            $table->foreignId('publisher_id')->unsigned()
+                ->constrained('game_publishers')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
@@ -29,5 +30,6 @@ class AlterGamesTableAddPublishersFk extends Migration
     {
         Schema::table('games', function (Blueprint $table) {
             $table->dropForeign(['publisher_id']);
-    });
+        });
+    }
 }
