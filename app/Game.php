@@ -14,4 +14,9 @@ class Game extends Model
         'release_date',
         'image',
     ];
+
+    public function publisher()
+    {
+        return $this->hasOne(Publisher::class);
+    }
 }
