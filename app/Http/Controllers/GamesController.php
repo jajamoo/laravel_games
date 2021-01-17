@@ -29,13 +29,6 @@ class GamesController extends Controller
 
     public function create(Request $request)
     {
-        //        $request->validate([
-//            'title' => 'required|string',
-//            'publisher' => 'required|string',
-//            'developer' => 'nullable|string',
-//            'releasedate' => 'required|date',
-//            'image' => 'required|string',
-//        ]);
 
         if($request->isMethod('post')){
             $game = new Game;
@@ -48,7 +41,6 @@ class GamesController extends Controller
             $game->image = $request->file('image')->store('/images');
 
             $game->save();
-
         }
 
         return view('games.create');

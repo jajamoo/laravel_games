@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('main.css') }}">
+
 <head>
     <title> Adding Games! </title>
 </head>
