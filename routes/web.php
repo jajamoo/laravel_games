@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('games.create');
-});
+})->name('home');
 
 Route::get('games', 'GamesController@index')->name('all_games');
 

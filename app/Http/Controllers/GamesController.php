@@ -45,7 +45,7 @@ class GamesController extends Controller
             $game->publisher_id = 3;
             $game->developer = $request->input('developer');
             $game->release_date = $request->input('releasedate');
-            $game->image = $request->file('image')->store('/storage/images');
+            $game->image = $request->file('image')->store('/images');
 
             $game->save();
 
