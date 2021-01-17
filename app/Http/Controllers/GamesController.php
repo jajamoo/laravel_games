@@ -16,8 +16,9 @@ class GamesController extends Controller
         return view('games.index', ['games' => $games]);
     }
 
-    public function show(Game $game)
+    public function show($id)
     {
+        $game = Game::find($id);
         return view('games.show', ['game' => $game]);
     }
 
@@ -26,26 +27,28 @@ class GamesController extends Controller
         return view('games.create');
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        if ($request->isMethod('post')) {
-            $request->validate([
-                'title' => 'required|string',
-                'publisher' => 'required|string',
-                'developer' => 'nullable|string',
-                'releasedate' => 'required|date',
-                'image' => 'required|string',
-            ]);
+        //        $request->validate([
+//            'title' => 'required|string',
+//            'publisher' => 'required|string',
+//            'developer' => 'nullable|string',
+//            'releasedate' => 'required|date',
+//            'image' => 'required|string',
+//        ]);
 
+        if($request->isMethod('post')){
             $game = new Game;
 
             $game->title = $request->input('title');
             $game->publisher = $request->input('publisher');
+            $game->publisher_id = 3;
             $game->developer = $request->input('developer');
-            $game->releasedate = $request->input('releasedate');
-            $game->image = $request->file('image')->store('public/images');
+            $game->release_date = $request->input('releasedate');
+            $game->image = $request->file('image')->store('/storage/images');
 
             $game->save();
+
         }
 
         return view('games.create');

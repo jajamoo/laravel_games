@@ -14,13 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('games.index');
+    return view('games.create');
 });
 
 Route::get('games', 'GamesController@index')->name('all_games');
 
 Route::get('games/{id}', 'GamesController@show')->name('show_game');
 
-Route::get('games/create', 'GamesController@create')->name('create');
+Route::post('games/create', 'GamesController@create')->name('add_games');
 
-Route::post('games', 'GamesController@store')->name('add_games');
+Route::get('games/create',  function () {
+    return view('games.create');
+})->name('add_games_get');
