@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{ asset('main.css') }}">
-<div class="card" style="width: 270px;margin: 5px">
+<div class="card" id="img-card-id">
     <img class="card-img-top" src="{{ asset('/'. $game->image ?? 'place_holder.png')  }}" alt="Card image cap">
     <div class="card-block">
         <h3 class="card-title">{{ $game->title }}</h3>

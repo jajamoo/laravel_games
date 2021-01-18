@@ -1,5 +1,5 @@
 html, body {
-    background-color: #fff;
+    background-color: #d4cccc;
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
@@ -47,4 +47,14 @@ html, body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+#img-card-id {
+    width: 270px;
+    margin: 5px
+}
+
+#gameimageid{
+    margin-top: 8px;
+    margin-bottom: 8px
 }

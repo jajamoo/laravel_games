@@ -37,7 +37,7 @@
             <div class="form-group row">
                 <label for="gameimageid" class="col-sm-3 col-form-label">Game Image</label>
                 <div class="col-sm-9">
-                    <input name="image" type="file" id="gameimageid" class="custom-file-input" style="margin-top: 8px; margin-bottom: 8px">
+                    <input name="image" type="file" id="gameimageid" class="custom-file-input">
                     <span style="margin-left: 15px; width: 480px;" class="custom-file-control"></span>
                 </div>
                 <div class="offset-sm-3 col-sm-9">
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </form>
-        <a href="{{route('all_games')}}" class="btn btn-primary">List Games</a>
+        <a href="{{route('all_games')}}"><button class="btn btn-primary">List Games</button></a>
 
     </div>
 

@@ -29,6 +29,13 @@ class GamesController extends Controller
 
     public function create(Request $request)
     {
+        $request->validate([
+            'title' => 'required|string',
+            'publisher' => 'required|string',
+            'developer' => 'nullable|string',
+            'releasedate' => 'required|date',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
 
         if($request->isMethod('post')){
             $game = new Game;
