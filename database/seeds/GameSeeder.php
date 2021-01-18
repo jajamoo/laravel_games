@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker;
 
 class GameSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class GameSeeder extends Seeder
      */
     public function run()
     {
-        $faker =  \Faker\Factory::create();
+        $faker =  Faker::create();
 
         DB::table('game_publishers')->insert([
             'name' => $faker->company,

@@ -4,7 +4,6 @@
     <h2 class="flex-center position-ref">Add a game</h2>
 
     <div class="flex-center position-ref">
-        <!-- Wrote this file -->
         <form method="post" action="{{route('add_games')}}" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group row">
@@ -46,7 +45,5 @@
             </div>
         </form>
         <a href="{{route('all_games')}}"><button class="btn btn-primary">List Games</button></a>
-
     </div>
-
 @endsection
