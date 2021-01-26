@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Events\GameSaved;
 use Illuminate\Http\Request;
 use App\Game;
 
@@ -33,6 +34,7 @@ class GamesController extends Controller
             'title' => 'required|string',
             'publisher' => 'required|string',
             'developer' => 'nullable|string',
+            'email' => 'required|email|unique:game_publishers,email',
             'releasedate' => 'required|date',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -45,9 +47,13 @@ class GamesController extends Controller
             $game->publisher_id = 3;
             $game->developer = $request->input('developer');
             $game->release_date = $request->input('releasedate');
+            $game->publisher_email = $request->input('email');
             $game->image = $request->file('image')->store('/images');
 
             $game->save();
+            $game->refresh();
+
+            event(new GameSaved($game));
         }
 
         return view('games.create');
