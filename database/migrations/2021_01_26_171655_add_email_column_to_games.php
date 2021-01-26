@@ -26,7 +26,7 @@ class AddEmailColumnToGames extends Migration
     public function down()
     {
         Schema::table('games', function (Blueprint $table) {
-            //
+            $table->dropColumn('publisher_email');
         });
     }
 }
