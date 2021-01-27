@@ -52,26 +52,4 @@
         </form>
         <a href="{{route('all_games')}}"><button class="btn btn-primary">List Games</button></a>
     </div>
-
-    <h2> Thumbstopper</h2>
-
-    <form>
-        <div id="label_div">
-            <label for="text_id" id="label_id">new button text</label>
-        </div>
-        <div id="text_div" class="text_class">
-            <input type="text" id="text_id" placeholder="Text here" name="text_name"/>
-        </div>
-        <input type="button" id="button_id" value="Click Me" name="button_name" onclick="change()" />
-    </form>
-
-    <style>
-        .text_class {
-            color: #e80061;
-        }
-
-        #label_id {
-            color: #ffffff;
-        }
-    </style>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Events\GameSaved;
+use App\GamePublisher;
 use Illuminate\Http\Request;
 use App\Game;
 
@@ -41,10 +42,10 @@ class GamesController extends Controller
 
         if($request->isMethod('post')){
             $game = new Game;
-
+            $publisher = GamePublisher::find(1);
             $game->title = $request->input('title');
             $game->publisher = $request->input('publisher');
-            $game->publisher_id = 3;
+            $game->publisher_id = $publisher->id;
             $game->developer = $request->input('developer');
             $game->release_date = $request->input('releasedate');
             $game->publisher_email = $request->input('email');

@@ -30,6 +30,7 @@ class SendGameSaveEmailer extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.new_game');
+        return $this->from('moe@test.com')
+            ->view('emails.new_game');
     }
 }
