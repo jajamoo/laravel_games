@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\GameSaved;
+use App\Jobs\SendEmailJob;
 use App\Mail\SendGameSaveEmailer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -28,8 +29,6 @@ class SendGameSaveEmail implements ShouldQueue
      */
     public function handle(GameSaved $event)
     {
-        Mail::to($event->game->publisher_email)->send(
-            new SendGameSaveEmailer($event->game)
-        );
+        SendEmailJob::dispatch($event);
     }
 }
