@@ -30,5 +30,6 @@ class SendGameSaveEmail implements ShouldQueue
     {
         Mail::to($event->game->publisher_email)->send(
             new SendGameSaveEmailer($event->game)
-        );    }
+        );
+    }
 }
