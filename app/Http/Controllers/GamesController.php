@@ -42,7 +42,7 @@ class GamesController extends Controller
 
         if($request->isMethod('post')){
             $game = new Game;
-            $publisher = GamePublisher::find(1);
+            $publisher = GamePublisher::firstOrFail();
             $game->title = $request->input('title');
             $game->publisher = $request->input('publisher');
             $game->publisher_id = $publisher->id;
