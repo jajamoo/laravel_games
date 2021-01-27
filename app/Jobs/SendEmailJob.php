@@ -32,7 +32,7 @@ class SendEmailJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->event->game->publisher_email)->send(
+        Mail::to($this->event->game->publisher_email)->queue(
             new SendGameSaveEmailer($this->event->game)
         );
     }
