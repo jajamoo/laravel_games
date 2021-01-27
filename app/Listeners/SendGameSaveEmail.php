@@ -4,12 +4,8 @@ namespace App\Listeners;
 
 use App\Events\GameSaved;
 use App\Jobs\SendEmailJob;
-use App\Mail\SendGameSaveEmailer;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Support\Facades\Mail;
 
-class SendGameSaveEmail implements ShouldQueue
+class SendGameSaveEmail
 {
     /**
      * Create the event listener.
