@@ -25,6 +25,11 @@ class SendSMSJob implements ShouldQueue
      */
     public function __construct()
     {
+        //can do it this way too
+//      $sid    = env( 'TWILIO_SID' );
+//      $token  = env( 'TWILIO_TOKEN' );
+//      $client = new Client( $sid, $token );
+
         $sid = config('services.twilio.account_sid');
         $token = config('services.twilio.auth_token');
         $this->twilioClient = new Client($sid, $token);
