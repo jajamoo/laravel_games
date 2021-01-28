@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Events\GameSaved;
 use App\Listeners\SendGameSaveEmail;
+use App\Listeners\SendSMS;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -21,7 +22,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         GameSaved::class => [
-            SendGameSaveEmail::class
+            SendGameSaveEmail::class,
+            SendSMS::class
         ]
     ];
 
