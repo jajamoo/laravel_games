@@ -50,6 +50,5 @@ class SendSMSJob implements ShouldQueue
         }catch (RestException $e){
             Log::info($e->getMessage());
         }
-        Log::info($message->status);
     }
 }
